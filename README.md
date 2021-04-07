@@ -11,7 +11,7 @@ En este tuturial se explica el desarrollo de un conjunto de códigos llamados �
 Figura 1. Estructura química de la amilosa.
 </p>
 
-Podemos tomar como unidades representativas: las moléculas que se encuentran a los extremos del polímeros y la unidad molecular que se repite a lo largo de la cadena como se observa en la Fig. 2.
+Podemos tomar como unidades representativas: las moléculas que se encuentran a los extremos del polímeros (Figs. 2a y 2c) y la unidad molecular que se repite a lo largo de la cadena (Fig. 2b).
 
 <p align="center">
 <img src="https://github.com/daniastor/Polimeros-Biodegradables/blob/main/Imagenes/Unidades_repre.PNG" width="600" height="">
@@ -21,5 +21,12 @@ Figura 2. Unidades representativas del polímero de amilosa. Las visualizaciones
 desde el constructor: “ConstructorLT_ monomero.py”.
 </p>
 
-La ventaja de los constructores que tienen su propio sistema para rotular los átomos y moléculas, por lo que son capaces de escribir archivos LT que pueden llamarse entre sí dentro de la arquitectura de Moltemplate, y así realizar de manera automática la escritura del sistema completo iniciando desde el campo, además de la visualización de las moléculas y el polímero final construido.
+La ventaja de los constructores que tienen su propio sistema para rotular los átomos y moléculas, por lo que son capaces de escribir archivos LT que pueden llamarse entre sí dentro de la arquitectura de Moltemplate, y así realizar de manera automática la escritura del sistema completo iniciando desde el campo, además de la visualización de las moléculas (Fig. 2) y el polímero final construido (Fig. 3).
 
+<p align="center">
+<img src="https://github.com/daniastor/Polimeros-Biodegradables/blob/main/Imagenes/Unidades_repre.PNG" width="600" height="">
+</p>
+<p align="center">
+Figura 3. Cadena corta de unidades de D-glucosa, generada desde el constructor: “ConstructorLT_
+polimero.py”.
+</p>
