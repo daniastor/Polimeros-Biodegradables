@@ -18,7 +18,7 @@ Podemos tomar como unidades representativas: las moléculas que se encuentran a 
 </p>
 <p align="center">
 Figura 2. Unidades representativas del polímero de amilosa. Las visualizaciones fueron generadas
-desde el constructor: “ConstructorLT_ monomero.py”..
+desde el constructor: “ConstructorLT_ monomero.py”.
 </p>
 
 La ventaja de los constructores que tienen su propio sistema para rotular los átomos y moléculas, por lo que son capaces de escribir archivos LT que pueden llamarse entre sí dentro de la arquitectura de Moltemplate, y así realizar de manera automática la escritura del sistema completo iniciando desde el campo, además de la visualización de las moléculas y el polímero construido.
