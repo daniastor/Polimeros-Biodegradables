@@ -24,7 +24,7 @@ desde el constructor: “ConstructorLT_ monomero.py”.
 La ventaja de los constructores que tienen su propio sistema para rotular los átomos y moléculas, por lo que son capaces de escribir archivos LT que pueden llamarse entre sí dentro de la arquitectura de Moltemplate, y así realizar de manera automática la escritura del sistema completo iniciando desde el campo, además de la visualización de las moléculas (Fig. 2) y el polímero final construido (Fig. 3).
 
 <p align="center">
-<img src="https://github.com/daniastor/Polimeros-Biodegradables/blob/main/Imagenes/amilosa.PNG" width="400" height="">
+<img src="https://github.com/daniastor/Polimeros-Biodegradables/blob/main/Imagenes/Camilosa.svg" width="400" height="">
 </p>
 <p align="center">
 Figura 3. Cadena corta de unidades de D-glucosa, generada desde el constructor: “ConstructorLT_
