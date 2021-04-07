@@ -14,7 +14,7 @@ Figura 1. Estructura química de la amilosa.
 Podemos tomar como unidades representativas: las moléculas que se encuentran a los extremos del polímeros (Figs. 2a y 2c) y la unidad molecular que se repite a lo largo de la cadena (Fig. 2b).
 
 <p align="center">
-<img src="https://github.com/daniastor/Polimeros-Biodegradables/blob/main/Imagenes/Unidades_repre.PNG" width="600" height="">
+<img src="https://github.com/daniastor/Polimeros-Biodegradables/blob/main/Imagenes/Unidades_repre.PNG" width="400" height="">
 </p>
 <p align="center">
 Figura 2. Unidades representativas del polímero de amilosa. Las visualizaciones fueron generadas
