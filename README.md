@@ -6,9 +6,11 @@ En este tuturial se explica el desarrollo de un conjunto de códigos llamados �
 
 <p align="center">
 <img src="https://github.com/daniastor/Polimeros-Biodegradables/blob/main/Imagenes/Estructura_Amilosa.PNG" width="600" height="">
- Figura 1. Estructura química de la amilosa.
 </p>
- 
+<p align="center">
+Figura 1. Estructura química de la amilosa.
+</p>
+
 Podemos tomar como unidades representativas: las moléculas que se encuentran a los extremos del polímeros y la unidad molecular que se repite a lo largo de la cadena como se observa en la siguiente figura:
  
 La ventaja de los constructores que tienen su propio sistema para rotular los átomos y moléculas, por lo que son capaces de escribir archivos LT que pueden llamarse entre sí dentro de la arquitectura de Moltemplate, y así realizar de manera automática la escritura del sistema completo iniciando desde el campo, además de la visualización de las moléculas y el polímero construido.
