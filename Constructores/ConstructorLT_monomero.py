@@ -1,7 +1,7 @@
 """
 Created on Thu Mar 11 11:26:15 2021
 
-@author: Dani Astor
+@author: Daniela F. Lopez-Astorquiza
 """
 # No utilizar tildes
 import sys
