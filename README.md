@@ -39,5 +39,5 @@ Finalmente en la Fig. 4, se observa la pequeña cadena de amilosa (con 8 unidade
 <img src="https://github.com/daniastor/Polimeros-Biodegradables/blob/main/Imagenes/U8_EstadoInicial.png" width="400" height="">
 </p>
 <p align="center">
-Figura 3. Estado inicial de la cadena corta de amilosa configurada con los constructres, implementada en LAMMPS y lista para simulaciones de dinámica molecular, visualización generada desde [OVITO](https://www.ovito.org/)
+Figura 3. Estado inicial de la cadena corta de amilosa configurada con los constructres, implementada en LAMMPS y lista para simulaciones de dinámica molecular, visualización generada desde OVITO (https://www.ovito.org/) .
 </p>
