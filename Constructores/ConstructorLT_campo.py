@@ -2,7 +2,7 @@
 """
 Created on Fri Apr 23 08:45:48 2021
 
-@author: Usuario Acer
+@author: Daniela F. Lopez-Astorquiza
 """
 
 import sys
