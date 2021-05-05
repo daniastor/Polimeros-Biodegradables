@@ -2,7 +2,7 @@
 """
 Created on Fri Mar  5 13:44:39 2021
 
-@author: Dani Astor
+@author: Daniela F. Lopez-Astorquiza
 """
 # No utilizar tildes
 import moltemplate # MOLTEMPLATE libreria
