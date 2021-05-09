@@ -54,7 +54,7 @@ print('')
 # Es conveniente que las moléculas leidas, tengan un átomo en el ->
 # origen de coordenadas (0,0,0), puede ser el que conecta con otro monomero,->
 # para ello en avogadro se puede emplear "Align Molecules" tool ->
-# antes de exportar el .pbd
+# antes de exportar el .PDB
 
 # Mediante el archivo .PDB, de la molecula exportada desde Avogadro podemos:->
 # conocer las coordXYZ [en Angstroms] y la secuencia en que van concetados ->
@@ -137,9 +137,9 @@ for i in range(len(atomID1_atomID2)):
 
 # Respecto al nombre de la molécula molID se nombra por defecto como " ... "->
 molID = '...'
-# La carga " charge " por defecto queda como 0.0 para emplear el campo -> 
-# generado por el ConstructorLT_campo.py, el campo OPLSAA tambien funciona ->
-# de esta manera.
+# La carga " charge " por defecto queda como 0.0, deido a que se emplea la carga ->
+# definida en el campo de fueza generado por el ConstructorLT_campo.py, -> 
+# el campo OPLSAA tambien funciona de esta manera.
 charge = 0.0
 #atomType
 atomType = '...' #*** Ingrese de forma manual en los archivos salida
