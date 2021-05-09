@@ -1,4 +1,4 @@
-# SYSTEM.LT - Descripcion del sistema 
+# SYSTEM.LT - Recoge la base de datos del sistema completo, para convertir a LAMMPS usar moltemplate.sh -vmd sistema.lt
 
 import polimero.lt
 
