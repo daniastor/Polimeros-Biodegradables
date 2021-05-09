@@ -1,0 +1,315 @@
+Campo  {
+
+# -o--- LAMMPS styles ---o-
+  write_once("In Init") {
+    units real
+    atom_style full
+    bond_style harmonic
+    angle_style harmonic
+    dihedral_style fourier
+    pair_style lj/cut/coul/cut 10.0 8.0
+  } # End of init parameters
+
+# -o--- Partial Charges ---o-
+  write_once("In Charges") {
+    set type @atom:c1    charge   0.29
+    set type @atom:ch    charge   0.14
+    set type @atom:c5    charge   0.11
+    set type @atom:c6    charge   0.05
+    set type @atom:oh    charge   -0.65
+    set type @atom:o5    charge   0.04
+    set type @atom:ho    charge   0.42
+    set type @atom:o4    charge   -0.36
+    set type @atom:h    charge   0.09
+    set type @atom:hc    charge   0.09
+  } # End of atom Partial Charges
+
+# -o--- Data Masses ---o-
+  # atomType  mass
+  write_once("Data Masses") {
+    @atom:c1 12.0107
+    @atom:ch 12.0107
+    @atom:c5 12.0107
+    @atom:c6 12.0107
+    @atom:oh 15.9994
+    @atom:o5 15.9994
+    @atom:ho 1.008
+    @atom:o4 15.9994
+    @atom:h 1.008
+    @atom:hc 1.008
+  } # End of atom Data Masses
+
+#-o-----Non-Bonded Interactions-----o-
+#   atomType1     atomType2    epsilon   sigma  charge
+  write_once("In Settings") {
+    pair_coeff  @atom:c1 @atom:c1   0.032     3.564     0.29
+    pair_coeff  @atom:ch @atom:ch   0.032     3.564     0.14
+    pair_coeff  @atom:c5 @atom:c5   0.032     3.564     0.11
+    pair_coeff  @atom:c6 @atom:c6   0.032     3.564     0.05
+    pair_coeff  @atom:oh @atom:oh   0.192     3.145     -0.65
+    pair_coeff  @atom:o5 @atom:o5   0.100     2.940     0.04
+    pair_coeff  @atom:ho @atom:ho   0.046     0.400     0.42
+    pair_coeff  @atom:o4 @atom:o4   0.100     2.940     -0.36
+    pair_coeff  @atom:h @atom:h   0.045     2.388     0.09
+    pair_coeff  @atom:hc @atom:hc   0.035     2.388     0.09
+  } # End of pair_coeffs (mixing rules determine interactions between different atoms types)
+
+# -o------ Bonded Interactions: ------o-
+#  BondTypeName   BondStyle   k   r0
+  write_once("In Settings") {
+    bond_coeff @bond:c1-o5   360.0   1.425
+    bond_coeff @bond:c1-o4   360.0   1.395
+    bond_coeff @bond:c1-h   309.0   1.110
+    bond_coeff @bond:c1-ch   222.5   1.480
+    bond_coeff @bond:ch-oh   410.0   1.410
+    bond_coeff @bond:ch-h   309.0   1.110
+    bond_coeff @bond:ch-ch   222.5   1.480
+    bond_coeff @bond:ch-c5   222.5   1.500
+    bond_coeff @bond:c5-o5   360.0   1.425
+    bond_coeff @bond:c5-h   309.0   1.110
+    bond_coeff @bond:c5-c6   222.5   1.490
+    bond_coeff @bond:c6-oh   428.0   1.420
+    bond_coeff @bond:c6-hc   309.0   1.110
+    bond_coeff @bond:oh-ho   545.0   0.960
+    bond_coeff @bond:ch-o4   360.0   1.415
+    bond_coeff @bond:c1-oh   428.0   1.400
+  } # End of bond_coeffs
+ 
+# BondTypeName      AtomType1         AtomType2
+  write_once("Data Bonds By Type") {
+    @bond:c1-o5 @atom:c1 @atom:o5
+    @bond:c1-o4 @atom:c1 @atom:o4
+    @bond:c1-h @atom:c1 @atom:h
+    @bond:c1-ch @atom:c1 @atom:ch
+    @bond:ch-oh @atom:ch @atom:oh
+    @bond:ch-h @atom:ch @atom:h
+    @bond:ch-ch @atom:ch @atom:ch
+    @bond:ch-c5 @atom:ch @atom:c5
+    @bond:c5-o5 @atom:c5 @atom:o5
+    @bond:c5-h @atom:c5 @atom:h
+    @bond:c5-c6 @atom:c5 @atom:c6
+    @bond:c6-oh @atom:c6 @atom:oh
+    @bond:c6-hc @atom:c6 @atom:hc
+    @bond:oh-ho @atom:oh @atom:ho
+    @bond:ch-o4 @atom:ch @atom:o4
+    @bond:c1-oh @atom:c1 @atom:oh
+  } # End of bonds by type
+ 
+# -o----- Angle Interactions -----o-
+# AngleTypeName   AngleStyle  k->kang   theta0
+  write_once("In Settings") {
+    angle_coeff @angle:o5-c1-o4   90.0   112.0
+    angle_coeff @angle:o5-c1-h   45.0   109.5
+    angle_coeff @angle:ch-c1-o5   45.0   106.0
+    angle_coeff @angle:o4-c1-h   45.0   109.5
+    angle_coeff @angle:ch-c1-o4   45.0   105.0
+    angle_coeff @angle:ch-c1-h   34.5   110.1
+    angle_coeff @angle:oh-ch-h   55.0   108.9
+    angle_coeff @angle:c1-ch-oh   75.7   110.1
+    angle_coeff @angle:ch-ch-oh   75.7   110.1
+    angle_coeff @angle:c1-ch-h   34.5   110.1
+    angle_coeff @angle:ch-ch-h   34.5   110.1
+    angle_coeff @angle:c1-ch-ch   53.4   111.0
+    angle_coeff @angle:ch-ch-ch   53.4   111.0
+    angle_coeff @angle:c5-ch-oh   75.7   110.1
+    angle_coeff @angle:c5-ch-h   34.5   110.1
+    angle_coeff @angle:ch-ch-c5   53.4   111.0
+    angle_coeff @angle:o5-c5-h   45.0   109.5
+    angle_coeff @angle:ch-c5-o5   45.0   110.0
+    angle_coeff @angle:c6-c5-o5   45.0   109.0
+    angle_coeff @angle:ch-c5-h   34.5   110.1
+    angle_coeff @angle:c6-c5-h   34.5   110.1
+    angle_coeff @angle:ch-c5-c6   58.4   113.5
+    angle_coeff @angle:oh-c6-hc   55.0   108.9
+    angle_coeff @angle:c5-c6-oh   75.7   110.1
+    angle_coeff @angle:hc-c6-hc   35.5   109.0
+    angle_coeff @angle:c5-c6-hc   33.4   110.1
+    angle_coeff @angle:ch-oh-ho   50.0   109.0
+    angle_coeff @angle:c1-o5-c5   95.0   109.7
+    angle_coeff @angle:c6-oh-ho   50.0   109.0
+    angle_coeff @angle:c1-o4-ch   50.0   109.2
+    angle_coeff @angle:o4-ch-h   60.0   109.5
+    angle_coeff @angle:ch-ch-o4   45.0   109.5
+    angle_coeff @angle:c5-ch-o4   90.0   112.0
+    angle_coeff @angle:oh-c1-o5   45.0   116.5
+    angle_coeff @angle:oh-c1-h   55.0   108.9
+    angle_coeff @angle:ch-c1-oh   75.7   107.0
+    angle_coeff @angle:c1-oh-ho   50.0   109.0
+  } # End of angle_coeffs
+
+# AngleTypeName     StartAtom    Vertex     EndAtom
+  write_once("Data Angles By Type") {
+    @angle:o5-c1-o4   @atom:o5   @atom:c1   @atom:o4
+    @angle:o5-c1-h   @atom:o5   @atom:c1   @atom:h
+    @angle:ch-c1-o5   @atom:ch   @atom:c1   @atom:o5
+    @angle:o4-c1-h   @atom:o4   @atom:c1   @atom:h
+    @angle:ch-c1-o4   @atom:ch   @atom:c1   @atom:o4
+    @angle:ch-c1-h   @atom:ch   @atom:c1   @atom:h
+    @angle:oh-ch-h   @atom:oh   @atom:ch   @atom:h
+    @angle:c1-ch-oh   @atom:c1   @atom:ch   @atom:oh
+    @angle:ch-ch-oh   @atom:ch   @atom:ch   @atom:oh
+    @angle:c1-ch-h   @atom:c1   @atom:ch   @atom:h
+    @angle:ch-ch-h   @atom:ch   @atom:ch   @atom:h
+    @angle:c1-ch-ch   @atom:c1   @atom:ch   @atom:ch
+    @angle:ch-ch-ch   @atom:ch   @atom:ch   @atom:ch
+    @angle:c5-ch-oh   @atom:c5   @atom:ch   @atom:oh
+    @angle:c5-ch-h   @atom:c5   @atom:ch   @atom:h
+    @angle:ch-ch-c5   @atom:ch   @atom:ch   @atom:c5
+    @angle:o5-c5-h   @atom:o5   @atom:c5   @atom:h
+    @angle:ch-c5-o5   @atom:ch   @atom:c5   @atom:o5
+    @angle:c6-c5-o5   @atom:c6   @atom:c5   @atom:o5
+    @angle:ch-c5-h   @atom:ch   @atom:c5   @atom:h
+    @angle:c6-c5-h   @atom:c6   @atom:c5   @atom:h
+    @angle:ch-c5-c6   @atom:ch   @atom:c5   @atom:c6
+    @angle:oh-c6-hc   @atom:oh   @atom:c6   @atom:hc
+    @angle:c5-c6-oh   @atom:c5   @atom:c6   @atom:oh
+    @angle:hc-c6-hc   @atom:hc   @atom:c6   @atom:hc
+    @angle:c5-c6-hc   @atom:c5   @atom:c6   @atom:hc
+    @angle:ch-oh-ho   @atom:ch   @atom:oh   @atom:ho
+    @angle:c1-o5-c5   @atom:c1   @atom:o5   @atom:c5
+    @angle:c6-oh-ho   @atom:c6   @atom:oh   @atom:ho
+    @angle:c1-o4-ch   @atom:c1   @atom:o4   @atom:ch
+    @angle:o4-ch-h   @atom:o4   @atom:ch   @atom:h
+    @angle:ch-ch-o4   @atom:ch   @atom:ch   @atom:o4
+    @angle:c5-ch-o4   @atom:c5   @atom:ch   @atom:o4
+    @angle:oh-c1-o5   @atom:oh   @atom:c1   @atom:o5
+    @angle:oh-c1-h   @atom:oh   @atom:c1   @atom:h
+    @angle:ch-c1-oh   @atom:ch   @atom:c1   @atom:oh
+    @angle:c1-oh-ho   @atom:c1   @atom:oh   @atom:ho
+  } # End of angles by type
+
+# -o---------- Dihedral Interactions  -----------o-
+#DihedralTypeName  DihedralStyle ki ni di
+  write_once("In Settings") {
+    dihedral_coeff @dihedral:o4-c1-o5-c5   1   0.41   1   180
+    dihedral_coeff @dihedral:h-c1-o5-c5   3   0.00   1   0   0.00   2   0   0.284   3   0
+    dihedral_coeff @dihedral:ch-c1-o5-c5   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:o5-c1-o4-ch   1   0.05   1   180 
+    dihedral_coeff @dihedral:h-c1-o4-ch   3   0.00   1   0   0.00   2   0   0.284   3   0
+    dihedral_coeff @dihedral:ch-c1-o4-ch   3   0.00   1   0   0.00   2   0   1.600   3   0
+    dihedral_coeff @dihedral:o5-c1-ch-oh   1   2.75   1   180  
+    dihedral_coeff @dihedral:o5-c1-ch-h   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:o5-c1-ch-ch   3   2.65   1   180   0.00   2   0   0.130   3   180
+    dihedral_coeff @dihedral:o4-c1-ch-h   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:o4-c1-ch-ch   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:h-c1-ch-oh   3   0.00   1   0   0.00   2   0   0.140   3   0
+    dihedral_coeff @dihedral:h-c1-ch-h   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:h-c1-ch-ch   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:h-ch-oh-ho   3   0.00   1   0   0.00   2   0   0.180   3   0
+    dihedral_coeff @dihedral:c1-ch-ch-oh   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:c1-ch-ch-h   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:c1-ch-ch-ch   3   0.00   1   0   0.00   2   0   0.190   3   180
+    dihedral_coeff @dihedral:oh-ch-ch-h   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:ch-ch-ch-oh   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:h-ch-ch-h   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:ch-ch-ch-h   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:ch-ch-ch-c5   3   0.00   1   0   0.00   2   0   0.190   3   180
+    dihedral_coeff @dihedral:c5-ch-ch-oh   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:c5-ch-ch-h   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:c5-ch-oh-ho   3   0.29   1   0   0.62   2   0   0.050   3   0
+    dihedral_coeff @dihedral:ch-ch-c5-o5   3   0.00   1   0   0.00   2   0   0.310   3   180
+    dihedral_coeff @dihedral:ch-ch-c5-h   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:ch-ch-c5-c6   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:oh-ch-c5-o5   3   1.36   1   180   0.16   2   0   1.010   3   0
+    dihedral_coeff @dihedral:oh-ch-c5-h   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:oh-ch-c5-c6   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:h-ch-c5-o5   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:h-ch-c5-h   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:h-ch-c5-c6   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:ch-c5-o5-c1   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:h-c5-o5-c1   3   0.00   1   0   0.00   2   0   0.284   3   0
+    dihedral_coeff @dihedral:c6-c5-o5-c1   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:ch-c5-c6-oh   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:ch-c5-c6-hc   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:o5-c5-c6-oh   3   0.75   1   180   0.17   2   0   0.250   3   180
+    dihedral_coeff @dihedral:o5-c5-c6-hc   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:h-c5-c6-oh   3   0.00   1   0   0.00   2   0   0.140   3   0
+    dihedral_coeff @dihedral:h-c5-c6-hc   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:c5-c6-oh-ho   3   0.29   1   0   0.62   2   0   0.050   3   0
+    dihedral_coeff @dihedral:hc-c6-oh-ho   3   0.00   1   0   0.00   2   0   0.180   3   0
+    dihedral_coeff @dihedral:c5-c6-oh-ho   3   0.13   1   180   0.25   2   180   0.060   3   180
+    dihedral_coeff @dihedral:h-ch-o4-c1   3   0.00   1   0   0.00   2   0   0.284   3   0
+    dihedral_coeff @dihedral:ch-ch-o4-c1   3   0.13   1   180   0.25   2   180   0.060   3   180
+    dihedral_coeff @dihedral:ch-ch-ch-o4   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:oh-ch-ch-o4   3   2.65   1   180   0.00   2   0   0.130   3   180
+    dihedral_coeff @dihedral:o4-ch-ch-h   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:o4-ch-c5-o5   3   1.36   1   180   0.16   2   0   1.010   3   0
+    dihedral_coeff @dihedral:o4-ch-c5-h   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:o4-ch-c5-c6   3   0.00   1   0   0.00   2   0   0.200   3   0
+    dihedral_coeff @dihedral:oh-c1-o5-c5   3   0.41   1   180   0.89   2   0   0.050   3   0
+    dihedral_coeff @dihedral:o5-c1-oh-ho   3   1.55   1   0   1.17   2   0   1.070   3   0
+    dihedral_coeff @dihedral:h-c1-oh-ho   3   0.00   1   0   0.00   2   0   0.180   3   0
+    dihedral_coeff @dihedral:ch-c1-oh-ho   3   0.29   1   0   0.62   2   0   0.050   3   0
+    dihedral_coeff @dihedral:oh-c1-ch-oh   3   2.65   1   180   0.00   2   0   0.130   3   180
+    dihedral_coeff @dihedral:oh-c1-ch-h   3   0.00   1   0   0.00   2   0   0.140   3   0
+    dihedral_coeff @dihedral:oh-c1-ch-ch   3   0.00   1   0   0.00   2   0   0.200   3   0
+  } # End of dihedral_coeffs
+
+# DihedralTypeName  DAtomType1  DAtomType2  DAtomType3  DAtomType4
+  write_once("Data Dihedrals By Type") {
+    @dihedral:o4-c1-o5-c5   @atom:o4   @atom:c1   @atom:o5   @atom:c5  
+    @dihedral:h-c1-o5-c5   @atom:h   @atom:c1   @atom:o5   @atom:c5  
+    @dihedral:ch-c1-o5-c5   @atom:ch   @atom:c1   @atom:o5   @atom:c5  
+    @dihedral:o5-c1-o4-ch   @atom:o5   @atom:c1   @atom:o4   @atom:ch  
+    @dihedral:h-c1-o4-ch   @atom:h   @atom:c1   @atom:o4   @atom:ch  
+    @dihedral:ch-c1-o4-ch   @atom:ch   @atom:c1   @atom:o4   @atom:ch  
+    @dihedral:o5-c1-ch-oh   @atom:o5   @atom:c1   @atom:ch   @atom:oh  
+    @dihedral:o5-c1-ch-h   @atom:o5   @atom:c1   @atom:ch   @atom:h  
+    @dihedral:o5-c1-ch-ch   @atom:o5   @atom:c1   @atom:ch   @atom:ch  
+    @dihedral:o4-c1-ch-h   @atom:o4   @atom:c1   @atom:ch   @atom:h  
+    @dihedral:o4-c1-ch-ch   @atom:o4   @atom:c1   @atom:ch   @atom:ch  
+    @dihedral:h-c1-ch-oh   @atom:h   @atom:c1   @atom:ch   @atom:oh  
+    @dihedral:h-c1-ch-h   @atom:h   @atom:c1   @atom:ch   @atom:h  
+    @dihedral:h-c1-ch-ch   @atom:h   @atom:c1   @atom:ch   @atom:ch  
+    @dihedral:h-ch-oh-ho   @atom:h   @atom:ch   @atom:oh   @atom:ho  
+    @dihedral:c1-ch-ch-oh   @atom:c1   @atom:ch   @atom:ch   @atom:oh  
+    @dihedral:c1-ch-ch-h   @atom:c1   @atom:ch   @atom:ch   @atom:h  
+    @dihedral:c1-ch-ch-ch   @atom:c1   @atom:ch   @atom:ch   @atom:ch  
+    @dihedral:oh-ch-ch-h   @atom:oh   @atom:ch   @atom:ch   @atom:h  
+    @dihedral:ch-ch-ch-oh   @atom:ch   @atom:ch   @atom:ch   @atom:oh  
+    @dihedral:h-ch-ch-h   @atom:h   @atom:ch   @atom:ch   @atom:h  
+    @dihedral:ch-ch-ch-h   @atom:ch   @atom:ch   @atom:ch   @atom:h  
+    @dihedral:ch-ch-ch-c5   @atom:ch   @atom:ch   @atom:ch   @atom:c5  
+    @dihedral:c5-ch-ch-oh   @atom:c5   @atom:ch   @atom:ch   @atom:oh  
+    @dihedral:c5-ch-ch-h   @atom:c5   @atom:ch   @atom:ch   @atom:h  
+    @dihedral:c5-ch-oh-ho   @atom:c5   @atom:ch   @atom:oh   @atom:ho  
+    @dihedral:ch-ch-c5-o5   @atom:ch   @atom:ch   @atom:c5   @atom:o5  
+    @dihedral:ch-ch-c5-h   @atom:ch   @atom:ch   @atom:c5   @atom:h  
+    @dihedral:ch-ch-c5-c6   @atom:ch   @atom:ch   @atom:c5   @atom:c6  
+    @dihedral:oh-ch-c5-o5   @atom:oh   @atom:ch   @atom:c5   @atom:o5  
+    @dihedral:oh-ch-c5-h   @atom:oh   @atom:ch   @atom:c5   @atom:h  
+    @dihedral:oh-ch-c5-c6   @atom:oh   @atom:ch   @atom:c5   @atom:c6  
+    @dihedral:h-ch-c5-o5   @atom:h   @atom:ch   @atom:c5   @atom:o5  
+    @dihedral:h-ch-c5-h   @atom:h   @atom:ch   @atom:c5   @atom:h  
+    @dihedral:h-ch-c5-c6   @atom:h   @atom:ch   @atom:c5   @atom:c6  
+    @dihedral:ch-c5-o5-c1   @atom:ch   @atom:c5   @atom:o5   @atom:c1  
+    @dihedral:h-c5-o5-c1   @atom:h   @atom:c5   @atom:o5   @atom:c1  
+    @dihedral:c6-c5-o5-c1   @atom:c6   @atom:c5   @atom:o5   @atom:c1  
+    @dihedral:ch-c5-c6-oh   @atom:ch   @atom:c5   @atom:c6   @atom:oh  
+    @dihedral:ch-c5-c6-hc   @atom:ch   @atom:c5   @atom:c6   @atom:hc  
+    @dihedral:o5-c5-c6-oh   @atom:o5   @atom:c5   @atom:c6   @atom:oh  
+    @dihedral:o5-c5-c6-hc   @atom:o5   @atom:c5   @atom:c6   @atom:hc  
+    @dihedral:h-c5-c6-oh   @atom:h   @atom:c5   @atom:c6   @atom:oh  
+    @dihedral:h-c5-c6-hc   @atom:h   @atom:c5   @atom:c6   @atom:hc  
+    @dihedral:c5-c6-oh-ho   @atom:c5   @atom:c6   @atom:oh   @atom:ho  
+    @dihedral:hc-c6-oh-ho   @atom:hc   @atom:c6   @atom:oh   @atom:ho  
+    @dihedral:c5-c6-oh-ho   @atom:c5   @atom:c6   @atom:oh   @atom:ho  
+    @dihedral:h-ch-o4-c1   @atom:h   @atom:ch   @atom:o4   @atom:c1  
+    @dihedral:ch-ch-o4-c1   @atom:ch   @atom:ch   @atom:o4   @atom:c1  
+    @dihedral:ch-ch-ch-o4   @atom:ch   @atom:ch   @atom:ch   @atom:o4  
+    @dihedral:oh-ch-ch-o4   @atom:oh   @atom:ch   @atom:ch   @atom:o4  
+    @dihedral:o4-ch-ch-h   @atom:o4   @atom:ch   @atom:ch   @atom:h  
+    @dihedral:o4-ch-c5-o5   @atom:o4   @atom:ch   @atom:c5   @atom:o5  
+    @dihedral:o4-ch-c5-h   @atom:o4   @atom:ch   @atom:c5   @atom:h  
+    @dihedral:o4-ch-c5-c6   @atom:o4   @atom:ch   @atom:c5   @atom:c6  
+    @dihedral:oh-c1-o5-c5   @atom:oh   @atom:c1   @atom:o5   @atom:c5  
+    @dihedral:o5-c1-oh-ho   @atom:o5   @atom:c1   @atom:oh   @atom:ho  
+    @dihedral:h-c1-oh-ho   @atom:h   @atom:c1   @atom:oh   @atom:ho  
+    @dihedral:ch-c1-oh-ho   @atom:ch   @atom:c1   @atom:oh   @atom:ho  
+    @dihedral:oh-c1-ch-oh   @atom:oh   @atom:c1   @atom:ch   @atom:oh  
+    @dihedral:oh-c1-ch-h   @atom:oh   @atom:c1   @atom:ch   @atom:h  
+    @dihedral:oh-c1-ch-ch   @atom:oh   @atom:c1   @atom:ch   @atom:ch  
+  } # End of dihedrals by type
+
+
+} # Campo

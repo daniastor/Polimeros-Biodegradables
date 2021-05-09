@@ -1,0 +1,100 @@
+#Este archivo contiene la definicion para la unidad molecular mole2
+
+import "Campo.lt"
+
+# Ahora definamos la molecula de mole2
+
+mole2 inherits Campo {
+
+  write("Data Atoms") {
+  # atomID   molID   atomType  charge   x      y     z
+    $atom:O1 $mol:... @atom:o4  0.0  4.108  -0.669  -0.686
+    $atom:O2 $mol:... @atom:o5  0.0  2.375  0.288  0.567
+    $atom:O3 $mol:... @atom:o5  0.0  6.786  0.897  1.303
+    $atom:O4 $mol:... @atom:oh  0.0  5.287  -2.900  0.688
+    $atom:O5 $mol:... @atom:oh  0.0  2.012  0.127  -2.304
+    $atom:O6 $mol:... @atom:oh  0.0  0.170  -2.381  -0.429
+    $atom:O7 $mol:... @atom:oh  0.0  8.118  -2.524  1.149
+    $atom:O8 $mol:... @atom:o4  0.0  8.550  -0.000  -0.000
+    $atom:O9 $mol:... @atom:oh  0.0  5.588  3.187  0.420
+    $atom:O10 $mol:... @atom:oh  0.0  -0.309  -0.718  2.837
+    $atom:C11 $mol:... @atom:ch  0.0  5.023  -0.534  0.397
+    $atom:C12 $mol:... @atom:ch  0.0  6.000  -1.709  0.344
+    $atom:C13 $mol:... @atom:c1  0.0  2.770  -0.835  -0.218
+    $atom:C14 $mol:... @atom:ch  0.0  1.850  -0.991  -1.431
+    $atom:C15 $mol:... @atom:c5  0.0  5.765  0.807  0.302
+    $atom:C16 $mol:... @atom:ch  0.0  0.383  -1.095  -1.004
+    $atom:C17 $mol:... @atom:ch  0.0  0.000  0.000  0.000
+    $atom:C18 $mol:... @atom:c5  0.0  1.049  0.214  1.105
+    $atom:C19 $mol:... @atom:ch  0.0  7.141  -1.507  1.340
+    $atom:C20 $mol:... @atom:c1  0.0  7.779  -0.124  1.193
+    $atom:C21 $mol:... @atom:c6  0.0  4.831  1.995  0.512
+    $atom:C22 $mol:... @atom:c6  0.0  0.969  -0.811  2.234
+    $atom:H23 $mol:... @atom:h  0.0  4.510  -0.579  1.370
+    $atom:H24 $mol:... @atom:h  0.0  6.384  -1.862  -0.671
+    $atom:H25 $mol:... @atom:h  0.0  2.735  -1.747  0.388
+    $atom:H26 $mol:... @atom:h  0.0  2.157  -1.882  -1.992
+    $atom:H27 $mol:... @atom:h  0.0  6.232  0.921  -0.685
+    $atom:H28 $mol:... @atom:h  0.0  -0.237  -1.055  -1.904
+    $atom:H29 $mol:... @atom:h  0.0  -0.958  -0.242  0.475
+    $atom:H30 $mol:... @atom:h  0.0  0.859  1.200  1.546
+    $atom:H31 $mol:... @atom:h  0.0  6.744  -1.619  2.356
+    $atom:H32 $mol:... @atom:h  0.0  8.458  -0.002  2.046
+    $atom:H33 $mol:... @atom:hc  0.0  4.374  1.967  1.506
+    $atom:H34 $mol:... @atom:hc  0.0  4.051  2.031  -0.255
+    $atom:H35 $mol:... @atom:hc  0.0  1.121  -1.837  1.891
+    $atom:H36 $mol:... @atom:hc  0.0  1.737  -0.603  2.988
+    $atom:H37 $mol:... @atom:ho  0.0  4.940  -2.797  1.591
+    $atom:H38 $mol:... @atom:ho  0.0  1.437  -0.017  -3.076
+    $atom:H39 $mol:... @atom:ho  0.0  -0.769  -2.444  -0.191
+    $atom:H40 $mol:... @atom:ho  0.0  8.831  -2.368  1.792
+    $atom:H41 $mol:... @atom:ho  0.0  4.976  3.930  0.559
+    $atom:H42 $mol:... @atom:ho  0.0  -0.332  -1.365  3.563
+  }
+
+  write("Data Bond List") {
+    $bond:O1-C11 $atom:O1 $atom:C11
+    $bond:O1-C13 $atom:O1 $atom:C13
+    $bond:O2-C13 $atom:O2 $atom:C13
+    $bond:O2-C18 $atom:O2 $atom:C18
+    $bond:O3-C15 $atom:O3 $atom:C15
+    $bond:O3-C20 $atom:O3 $atom:C20
+    $bond:O4-C12 $atom:O4 $atom:C12
+    $bond:O4-H37 $atom:O4 $atom:H37
+    $bond:O5-C14 $atom:O5 $atom:C14
+    $bond:O5-H38 $atom:O5 $atom:H38
+    $bond:O6-C16 $atom:O6 $atom:C16
+    $bond:O6-H39 $atom:O6 $atom:H39
+    $bond:O7-C19 $atom:O7 $atom:C19
+    $bond:O7-H40 $atom:O7 $atom:H40
+    $bond:O8-C20 $atom:O8 $atom:C20
+    $bond:O9-C21 $atom:O9 $atom:C21
+    $bond:O9-H41 $atom:O9 $atom:H41
+    $bond:O10-C22 $atom:O10 $atom:C22
+    $bond:O10-H42 $atom:O10 $atom:H42
+    $bond:C11-C12 $atom:C11 $atom:C12
+    $bond:C11-C15 $atom:C11 $atom:C15
+    $bond:C11-H23 $atom:C11 $atom:H23
+    $bond:C12-C19 $atom:C12 $atom:C19
+    $bond:C12-H24 $atom:C12 $atom:H24
+    $bond:C13-C14 $atom:C13 $atom:C14
+    $bond:C13-H25 $atom:C13 $atom:H25
+    $bond:C14-C16 $atom:C14 $atom:C16
+    $bond:C14-H26 $atom:C14 $atom:H26
+    $bond:C15-C21 $atom:C15 $atom:C21
+    $bond:C15-H27 $atom:C15 $atom:H27
+    $bond:C16-C17 $atom:C16 $atom:C17
+    $bond:C16-H28 $atom:C16 $atom:H28
+    $bond:C17-C18 $atom:C17 $atom:C18
+    $bond:C17-H29 $atom:C17 $atom:H29
+    $bond:C18-C22 $atom:C18 $atom:C22
+    $bond:C18-H30 $atom:C18 $atom:H30
+    $bond:C19-C20 $atom:C19 $atom:C20
+    $bond:C19-H31 $atom:C19 $atom:H31
+    $bond:C20-H32 $atom:C20 $atom:H32
+    $bond:C21-H33 $atom:C21 $atom:H33
+    $bond:C21-H34 $atom:C21 $atom:H34
+    $bond:C22-H35 $atom:C22 $atom:H35
+    $bond:C22-H36 $atom:C22 $atom:H36
+  }
+} # mole2

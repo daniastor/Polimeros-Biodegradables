@@ -1,0 +1,60 @@
+# Este archivo contiene la definicion para el polimero polimero
+ 
+import "mole1.lt"
+import "mole2.lt"
+import "mole3.lt"
+
+polimero inherits Campo {
+ 
+  create_var {$mol}
+
+
+
+
+  # ----- list of monomers: -----
+  #
+  # (Note: move(), rot(), and rotvv() commands control the position
+  #  of each monomer.  (See the moltemplate manual for an explanation
+  #  of what they do.)  Commands enclosed in push() are cumulative
+  #  and remain in effect until removed by pop().)
+
+
+
+  push(move(0,0,0))
+  pop()
+  push(rotvv(1.0,0.0,0.0,1.0,0.0,0.0))
+  push(move(9.394427190999917,10.733126291998989,10.733126291998989))
+  mon[0] = new mole1.rot(0.0,1.0,0.0,0.0)
+  pop()
+  push(rotvv(1.0,0.0,0.0,1.0,0.0,0.0))
+  push(move(11.58283212344891,10.733126291998989,10.733126291998989))
+  mon[1] = new mole2.rot(0.0,1.0,0.0,0.0)
+  pop()
+  push(rotvv(1.0,0.0,0.0,1.0,0.0,0.0))
+  push(move(22.271237055897902,10.733126291998989,10.733126291998989))
+  mon[2] = new mole2.rot(0.0,1.0,0.0,0.0)
+  pop()
+  push(rotvv(1.0,0.0,0.0,1.0,0.0,0.0))
+  push(move(32.959641988346895,10.733126291998989,10.733126291998989))
+  mon[3] = new mole2.rot(0.0,1.0,0.0,0.0)
+  pop()
+  push(rotvv(1.0,0.0,0.0,1.0,0.0,0.0))
+  push(move(43.64804692079589,10.733126291998989,10.733126291998989))
+  mon[4] = new mole3.rot(0.0,1.0,0.0,0.0)
+  pop()
+  pop()
+  pop()
+  pop()
+  pop()
+  pop()
+ 
+  write("Data Bond List") {
+ 
+    $bond:0_mol_mol $atom:mon[0]/O5 $atom:mon[1]/C17
+    $bond:1_mol_mol $atom:mon[1]/O8 $atom:mon[2]/C17
+    $bond:2_mol_mol $atom:mon[2]/O8 $atom:mon[3]/C17
+    $bond:3_mol_mol $atom:mon[3]/O8 $atom:mon[4]/C6
+ 
+  } # End Data Bond List
+ 
+} #  polimero

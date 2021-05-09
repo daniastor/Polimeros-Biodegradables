@@ -1,0 +1,11 @@
+# SYSTEM.LT - Descripcion del sistema 
+
+import polimero.lt
+
+polymer = new polimero
+
+write_once("Data Boundary") { 
+   0.0 50.0 xlo  xhi 
+   0.0 20.0 ylo  yhi 
+   0.0 20.0 zlo  zhi 
+} 
