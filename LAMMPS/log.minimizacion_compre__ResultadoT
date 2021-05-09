@@ -1,0 +1,86 @@
+
+# Termodinamica
+thermo        50  # Indica que voy a extraer la informacion de la termodinamica del sitema cada 100 pasos
+#thermo_style  custom step temp pe ke press vol lx density # Digo exactamente que cantidades termodinamicas quiero conocer a lo largo de la simulacion
+thermo_style  custom step time pe ke etotal evdwl ecoul ebond eangle edihed density press
+
+# Dinamica
+#dump 		  2 all custom 50 md.trayectoria_min_* id type x y z # Informacion de los datos individualmente (posicion), cada 1000 pasos
+
+# Minimizacion
+min_style cg                            # Version Polak-Ribiere del algoritmo de gradiente conjugado (CG)
+minimize 1e-10 1e-10 100000 100000
+WARNING: Using 'neigh_modify every 1 delay 0 check yes' setting during minimization (src/min.cpp:187)
+Neighbor list info ...
+  update every 1 steps, delay 0 steps, check yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 2.09
+  ghost atom cutoff = 6
+  binsize = 1.045, bins = 18 11 10
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair lj/cut/coul/cut, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d/newton
+      bin: standard
+WARNING: Bond/angle/dihedral extent > half of periodic box length (src/domain.cpp:933)
+Per MPI rank memory allocation (min/avg/max) = 14.51 | 14.51 | 14.51 Mbytes
+Step Time PotEng KinEng TotEng E_vdwl E_coul E_bond E_angle E_dihed Density Press 
+       0            0    245.06183     153.0974    398.15923            0            0    25.831011    83.897144    135.33367    1.0725116    4709.2947 
+      50           50    136.93562     153.0974    290.03302            0            0   0.52368748    8.2174271     128.1945    1.0725116    4092.5141 
+     100          100     131.2729     153.0974     284.3703            0            0   0.16956576    4.6161016    126.48723    1.0725116    3794.8911 
+     150          150    129.48633     153.0974    282.58373            0            0   0.14964267    3.8580203    125.47867    1.0725116     3538.584 
+     200          200    128.12537     153.0974    281.22277            0            0      0.13601    3.4034845    124.58587    1.0725116    3561.7865 
+     250          250    127.79919     153.0974    280.89659            0            0    0.1155077     3.189204    124.49448    1.0725116    3479.1174 
+     300          300    127.65032     153.0974    280.74772            0            0   0.11118116    3.1469189    124.39222    1.0725116     3499.763 
+     350          350    127.55865     153.0974    280.65605            0            0  0.098039354    3.0599274    124.40068    1.0725116    3481.5105 
+     400          400    127.50326     153.0974    280.60066            0            0   0.10883798    3.0695713    124.32485    1.0725116    3489.4345 
+     450          450      127.444     153.0974     280.5414            0            0   0.11058313    3.0953897    124.23802    1.0725116    3490.8825 
+     500          500    127.34248     153.0974    280.43988            0            0   0.10727759    3.0801767    124.15503    1.0725116    3487.4077 
+     550          550    127.28871     153.0974    280.38611            0            0   0.10668916    3.0674976    124.11452    1.0725116    3488.0901 
+     600          600    127.26237     153.0974    280.35977            0            0   0.10344055    3.0413478    124.11758    1.0725116    3479.9512 
+     631          631    127.25386     153.0974    280.35126            0            0   0.10458086    3.0442084    124.10507    1.0725116    3477.9212 
+Loop time of 0.173022 on 1 procs for 631 steps with 171 atoms
+
+90.3% CPU use with 1 MPI tasks x 1 OpenMP threads
+
+Minimization stats:
+  Stopping criterion = linesearch alpha is zero
+  Energy initial, next-to-last, final = 
+      245.061828563657   127.253860630081   127.253860630081
+  Force two-norm initial, final = 262.34753 0.21724468
+  Force max component initial, final = 41.491903 0.029798829
+  Final line search alpha, max atom move = 2.3841858e-07 7.1045945e-09
+  Iterations, force evaluations = 631 1605
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 0          | 0          | 0          |   0.0 |  0.00
+Bond    | 0.14178    | 0.14178    | 0.14178    |   0.0 | 81.94
+Neigh   | 0          | 0          | 0          |   0.0 |  0.00
+Comm    | 0.015616   | 0.015616   | 0.015616   |   0.0 |  9.03
+Output  | 0.015624   | 0.015624   | 0.015624   |   0.0 |  9.03
+Modify  | 0          | 0          | 0          |   0.0 |  0.00
+Other   |            | 0          |            |       |  0.00
+
+Nlocal:        171.000 ave         171 max         171 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:        1246.00 ave        1246 max        1246 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:        145.000 ave         145 max         145 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 145
+Ave neighs/atom = 0.84795322
+Ave special neighs/atom = 11.824561
+Neighbor list builds = 3
+Dangerous builds = 0
+
+# Nuevo sistema
+write_data   sistema_minimizado_compre.data
+System init for write_data ...
+
+
+
+Total wall time: 0:00:00

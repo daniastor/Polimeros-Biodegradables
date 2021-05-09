@@ -1,0 +1,33 @@
+# LAMMPS
+
+# Sistema
+variable fname index sistema.data  # Informacion de la estructura que se va a emplear (coordenadas y conexiones entre los atomos)
+                                   # Inicialmente se emplearia la Salida de Moltemplate sistema.data 
+								   
+boundary      p p p  #condiciones de borde periodicas 
+include         "sistema.in.init"  #Salida de Moltemplate: Informacion del campo de fuerza (el potencial)
+read_data	    ${fname}           # Llamo el sistema 
+include         "sistema.in.settings" #Salida de Moltemplate: Informacion del campo de fuerza (parametros)
+include         "sistema.in.charges"  #Salida de Moltemplate: Informacion del campo de fuerza  (cargas)
+
+comm_modify mode single cutoff 6.0 vel yes   # Quitar Warnning cutoff
+
+log 		    log.minimizacion  # Aqui se guarda la informacion de la simulacion
+
+# Termodinamica
+thermo        50  # Indica que voy a extraer la informacion de la termodinamica del sitema cada 100 pasos
+#thermo_style  custom step temp pe ke press vol lx density # Digo exactamente que cantidades termodinamicas quiero conocer a lo largo de la simulacion
+thermo_style  custom step time pe ke etotal evdwl ecoul ebond eangle edihed density press
+
+# Dinamica
+#dump 		  2 all custom 50 md.trayectoria_min_* id type x y z # Informacion de los datos individualmente (posicion), cada 1000 pasos
+
+# Minimizacion
+min_style cg                            # Version Polak-Ribiere del algoritmo de gradiente conjugado (CG)
+minimize 1e-10 1e-10 100000 100000
+
+# Nuevo sistema
+write_data   sistema_minimizado.data
+
+
+
