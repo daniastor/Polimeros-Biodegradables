@@ -1,0 +1,5 @@
+Los archivos
+
+- sistema.data , pueden ser leídos por OVITO
+- sistema.in   , entrada para LAMMPS (lmp_serial -in sistema.in) - Windows
+- sistema.lt   , entrada para el algoritmo de Moltemplate (moltemplate.sh -vmd sistema.lt) - Ubuntu
