@@ -37,9 +37,6 @@ reset_timestep          0
 fix                          1 all npt temp 300 300 1 y 0 0 1 z 0 0 1 drag 2 
 fix                             2 all deform 1 x erate 0.001
 
-# Output strain and stress info to file
-# las unidades son estilo real entonces la presion se encuentra en [atm]
-# p2, p3, p4 se cambian a [MPa]
 variable strain equal "(lx - v_L0)/v_L0"
 variable p1 equal "v_strain"  # Esfuerzo
 variable p2 equal "-pxx/10000*1.01325" # Estiramiento en el eje x
