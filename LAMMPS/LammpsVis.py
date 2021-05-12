@@ -2,7 +2,7 @@
 """
 Created on Thu Apr 29 20:54:48 2021
 
-@author: Usuario Acer
+@author: Daniela F. Lopez Astoquiza
 """
 
 import matplotlib.pyplot as plt
